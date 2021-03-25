@@ -1,0 +1,223 @@
+<html>
+<body>
+	<!-- <ul style="list-style-type: none;">
+		<li>	
+			<input type="number" name="SloveneA"> 
+			Slovene A
+		</li>
+		<li>	
+			<input type="number" name="EnglishB"> 
+			English B
+			<input type="checkbox" name="engHL"> HL
+		</li>
+		<li>	
+			<input type="number" name="MathAA"> 
+			Mathematics A&A	
+			<input type="checkbox" name="mathHL"> HL
+		</li>
+		<li>	
+			<input type="number" name="SloveneA"> Slovene A	
+		</li>
+		<li>	
+			<input type="number" name="SloveneA"> Slovene A	
+		</li>
+	</ul>
+	 -->
+	 Student's name <input type="name" id="Student's name">
+	 <div class="row">
+	 	<div class="column">
+	 		<h3>
+	 			Subject
+	 		</h3>
+	 		<div class="item">		
+		 		<select id="sub1">
+		 			<option value="SloveneA">SloveneA</option>
+		 			<option value="SerbianA">SerbianA</option>
+		 		</select>
+	 		</div>
+	 		<div class="item">		
+		 		<select id="sub2">
+		 			<option value="EnglishB">EnglishB</option>
+		 			<option value="EnglishA">EnglishA</option>
+		 		</select>
+	 		</div>
+	 		<div class="item">		
+		 		Mathematics
+	 		</div>
+	 		<div class="item">		
+		 		<select id="sub4">
+		 			<option value="Psychology"> Psychology </option>
+		 			<option value="Economics"> Economics </option>
+		 			<option value="Physics"> Physics </option>
+		 			<option value="Chemistry"> Chemistry </option>
+		 			<option value="Biology"> Biology </option>
+		 		</select>
+	 		</div>
+	 		<div class="item">		
+		 		<select id="sub5">
+		 			<option value="Biology"> Biology </option>
+		 			<option value="Psychology"> Psychology </option>
+		 			<option value="Economics"> Economics </option>
+		 			<option value="Physics"> Physics </option>
+		 			<option value="Chemistry"> Chemistry </option>
+		 		</select>
+	 		</div>
+
+	 		<div class="item">		
+		 		<select id="sub6">
+		 			<option value="Chemistry"> Chemistry </option>
+		 			<option value="Psychology"> Psychology </option>
+		 			<option value="Economics"> Economics </option>
+		 			<option value="Physics"> Physics </option>
+		 			<option value="Biology"> Biology </option>
+		 		</select>
+	 		</div>
+	 	</div>
+	 	<div class="column">
+	 		<h3>
+	 			Level (HL)
+	 		</h3>
+	 		<div class="item">
+	 			<input type="checkbox" id="1HL">
+	 		</div>
+	 		<div class="item">
+	 			<input type="checkbox" id="2HL">
+	 		</div>
+	 		<div class="item">
+	 			<input type="checkbox" id="3HL">
+	 		</div>
+	 		<div class="item">
+	 			<input type="checkbox" id="4HL">
+	 		</div>
+	 		<div class="item">
+	 			<input type="checkbox" id="5HL">
+	 		</div>
+	 		<div class="item">
+	 			<input type="checkbox" id="6HL">
+	 		</div>
+	 	</div>
+	 	<div class="column">
+	 		<h3>
+	 			Grade
+	 		</h3>
+	 		<div class="item">
+	 			<input type="number" id="1G" value=7>
+		 	</div>
+		 	<div class="item">
+		 		<input type="number" id="2G" value=7>
+		 	</div>
+		 	<div class="item">
+		 		<input type="number" id="3G" value=7>
+		 	</div>
+		 	<div class="item">
+		 		<input type="number" id="4G" value=7>
+		 	</div>
+		 	<div class="item">
+		 		<input type="number" id="5G" value=7>
+		 	</div>
+		 	<div class="item">
+		 		<input type="number" id="6G" value=7>
+		 	</div>
+	 	</div>
+	 </div>
+	 <!--<div>
+	 	Use second language instead of English B for the transformation of an HL subject
+	 	<input type="checkbox" id="secondLanguage">
+	 </div>-->
+	 <input type="button" name="submit" value="submit" class="submit" onclick="Calculate()">	
+	 <div id="final"></div>
+	 <style type="text/css">
+	 	.column{
+	 		float: left;
+	 		width: 33.3%
+	 	}
+	 	.row:after{
+	 		content: "";
+	 		display: table;
+	 		clear: both;
+	 	}
+	 	.item{
+	 		height: 40px;
+	 		width: 100px;
+	 		padding: 0;
+	 		margin: 0;
+	 		background-color: white;
+	 	}
+	 	.submit{
+	 		margin: auto;
+	 		margin-top: 20px;
+	 	}
+	 	select{
+	 		width: 100px;
+	 	}
+	 </style>
+	 <script type="text/javascript">
+	 	let ib_to_slo = [0,1,2,2,3,4,5,5]; 
+
+	 	function addElement(s){
+	 		var tag = document.createElement('p');
+	 		var text = document.createTextNode(s);
+	 		tag.appendChild(text);
+	 		var element = document.getElementById('final');
+	 		element.appendChild(tag);
+	 	}
+
+	 	function getLangA(g, hl){
+	 		let normal = ib_to_slo[g];
+	 		let adjusted = normal
+	 		if(hl){
+	 			if(g == 7) {
+	 				adjusted += 3;
+	 			}else if (g == 6 || g == 5) {
+		 			adjusted += 2;
+				}else if(g == 4) {
+					adjusted += 1;
+				}
+	 		}
+	 		return [normal,adjusted];
+	 	}
+
+	 	function get
+
+	 	function Calculate() {
+	 		let sub1 = document.getElementById("sub1").value;
+	 		let sub2 = document.getElementById("sub2").value;
+	 		let sub4 = document.getElementById("sub4").value;
+	 		let sub5 = document.getElementById("sub5").value;
+	 		let sub6 = document.getElementById("sub6").value;
+	 		console.log(sub4,sub5,sub6);
+
+	 		let hl1 = document.getElementById("1HL").checked;
+	 		let hl2 = document.getElementById("2HL").checked;
+	 		let hl3 = document.getElementById("3HL").checked;
+	 		let hl4 = document.getElementById("4HL").checked;
+	 		let hl5 = document.getElementById("5HL").checked;
+	 		let hl6 = document.getElementById("6HL").checked;
+	 		console.log(hl1,hl2,hl3,hl4,hl5,hl6);
+
+	 		let g1 = document.getElementById("1G").value;
+	 		let g2 = document.getElementById("2G").value;
+	 		let g3 = document.getElementById("3G").value;
+	 		let g4 = document.getElementById("4G").value;
+	 		let g5 = document.getElementById("5G").value;
+	 		let g6 = document.getElementById("6G").value;
+	 		console.log(g1,g2,g3,g4,g5,g6);
+
+	 		
+
+	 		IB_grades = []
+	 		
+	 		let langA = getLangA(g1, hl1)
+	 		addElement('Ocena iz ' + sub1 +  ' v 3. letniku: ' + langA[0]);
+	 		addElement('Ocena iz ' + sub1 +  ' v 4. letniku: ' + langA[0]);
+	 		addElement('Ocena iz ' + sub1 +  ' na maturi: ' + langA[1]);
+
+	 		addElement('.')
+
+	 		
+
+	 		
+	 	}
+	 </script>
+</body>
+</html>
