@@ -1,0 +1,35 @@
+body {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 2%;
+}
+
+.column {
+        float: left;
+        width: 33.3%
+}
+
+.row:after {
+        content: "";
+        display: table;
+        clear: both;
+}
+
+.item {
+        height: 40px;
+        width: 100px;
+        padding: 0;
+        margin: 0;
+        border: none;
+}
+
+.submit {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 40px;
+}
+
+select {
+        width: 100px;
+}
+
